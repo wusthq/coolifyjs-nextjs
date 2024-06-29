@@ -12,7 +12,7 @@ interface RootLayoutProps {
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html className="h-full w-full">
+    <html className="h-full w-full" suppressHydrationWarning>
       <body className={cn(inter.className, "h-full min-h-screen")}>
         <div className="h-full min-h-0 w-full">
           <Providers>{children}</Providers>

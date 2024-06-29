@@ -3,7 +3,6 @@ import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { Loader2 } from "lucide-react";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -24,7 +23,10 @@ const buttonVariants = cva(
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+
         icon: "h-10 w-10",
+        ["sm-icon"]: "h-9 w-9",
+        ["lg-icon"]: "h-11 w-11",
       },
     },
     defaultVariants: {
@@ -38,7 +40,14 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
-  loading?: boolean;
+  isLoading?: boolean;
+  isDisabled?: boolean;
+  withoutStyling?: boolean;
+  mobile?: {
+    content: React.ReactNode;
+    props?: VariantProps<typeof buttonVariants> &
+      React.ButtonHTMLAttributes<HTMLButtonElement>;
+  };
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -46,26 +55,55 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     {
       className,
       variant,
-      loading,
-      disabled,
       size,
+      isLoading,
+      isDisabled,
       asChild = false,
       children,
+      withoutStyling = false,
+      mobile,
       ...props
     },
     ref,
   ) => {
     const Comp = asChild ? Slot : "button";
+
     return (
-      <Comp
-        disabled={disabled || loading}
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      >
-        {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-        {children}
-      </Comp>
+      <>
+        {mobile && (
+          <Comp
+            className={cn(
+              withoutStyling
+                ? mobile.props?.className
+                : buttonVariants({
+                    variant: mobile.props?.variant,
+                    size: mobile.props?.size,
+                    className: mobile.props?.className,
+                  }),
+              { "sm:hidden": true },
+            )}
+            ref={ref}
+            disabled={isDisabled || isLoading}
+            {...props}
+          >
+            {mobile.content}
+          </Comp>
+        )}
+
+        <Comp
+          className={cn(
+            withoutStyling
+              ? className
+              : buttonVariants({ variant, size, className }),
+            { "max-sm:hidden": mobile !== undefined },
+          )}
+          ref={ref}
+          disabled={isDisabled || isLoading}
+          {...props}
+        >
+          {children}
+        </Comp>
+      </>
     );
   },
 );

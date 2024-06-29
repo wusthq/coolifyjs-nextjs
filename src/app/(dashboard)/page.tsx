@@ -1,7 +1,14 @@
-export default async function HomePage() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      whoa
-    </main>
-  );
+"use client";
+
+import { useTeams } from "@/features/teams/api/use-teams";
+import { redirect } from "next/navigation";
+
+export default function HomePage() {
+  const teams = useTeams();
+  const firstTeam = teams.data?.[0];
+  if (firstTeam) {
+    return redirect(`/${firstTeam.id}`);
+  } else {
+    return redirect(`/new-team`);
+  }
 }

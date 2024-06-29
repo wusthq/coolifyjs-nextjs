@@ -110,6 +110,8 @@ export const api = new Api();
 
 export const QUERY_KEYS = {
   USERS: "users",
+
+  TEAMS: "teams",
 } as const;
 
 export class ApiError {
