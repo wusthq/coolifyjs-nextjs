@@ -40,5 +40,7 @@ export const useHighlightPosition = ({
     position.horizontal.height = rect.height + "px";
 
     return position;
+
+    // eslint-disable-next-line
   }, [orientation, itemId, mounted]);
 };

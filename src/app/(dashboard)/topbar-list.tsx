@@ -2,39 +2,42 @@
 
 import { TabList, type TabListItem } from "@/components/ui/tab-list";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export const TopbarList = () => {
   const pathname = usePathname();
 
   const basePath = ``;
-  const items: TabListItem[] = [
-    {
-      id: "overview",
-      label: "Overview",
-      href: `${basePath}/`,
-      disabled: false,
-    },
+  const items: TabListItem[] = useMemo(
+    () => [
+      {
+        id: "overview",
+        label: "Overview",
+        href: `${basePath}/`,
+        disabled: false,
+      },
 
-    {
-      id: "network",
-      label: "Network",
-      href: `${basePath}/network`,
-      disabled: false,
-    },
-    {
-      id: "monitoring",
-      label: "Monitoring",
-      href: `${basePath}/monitoring`,
-      disabled: false,
-    },
-    {
-      id: "settings",
-      label: "Settings",
-      href: `${basePath}/settings`,
-      disabled: false,
-    },
-  ];
+      {
+        id: "network",
+        label: "Network",
+        href: `${basePath}/network`,
+        disabled: false,
+      },
+      {
+        id: "monitoring",
+        label: "Monitoring",
+        href: `${basePath}/monitoring`,
+        disabled: false,
+      },
+      {
+        id: "settings",
+        label: "Settings",
+        href: `${basePath}/settings`,
+        disabled: false,
+      },
+    ],
+    [basePath],
+  );
 
   const [selectedTabId, setSelectedTabId] = useState<string | undefined>(
     undefined,

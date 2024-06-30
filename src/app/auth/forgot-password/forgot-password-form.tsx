@@ -95,7 +95,7 @@ export const ForgotPasswordForm = ({}: ForgotPasswordFormProps) => {
 
               <Button
                 type="submit"
-                loading={forgotPassword.isPending}
+                isLoading={forgotPassword.isPending}
                 disabled={forgotPassword.data === true}
                 className="w-full"
               >

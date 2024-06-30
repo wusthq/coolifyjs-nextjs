@@ -6,6 +6,9 @@ export const DashboardMain = ({
   ...props
 }: ComponentPropsWithRef<"main">) => {
   return (
-    <main className={cn("h-full w-full px-4 py-4", className)} {...props} />
+    <main
+      className={cn("container h-full w-full py-4", className)}
+      {...props}
+    />
   );
 };

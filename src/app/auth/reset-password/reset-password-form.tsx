@@ -115,7 +115,7 @@ export const ResetPasswordForm = ({}: ResetPasswordFormProps) => {
               />
 
               <Button
-                loading={resetPassword.isPending}
+                isLoading={resetPassword.isPending}
                 type="submit"
                 className="w-full"
               >

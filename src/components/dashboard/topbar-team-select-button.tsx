@@ -20,7 +20,7 @@ export const TopbarTeamSelectButton = ({
   const workspace = useWorkspaceStore();
   const activeTeam = workspace.getActiveTeam();
 
-  const handleRoute = (teamId?: string) => {
+  const handleRoute = (teamId?: number) => {
     if (!teamId) return router.push("/");
 
     router.push(`/${teamId}`);
@@ -31,11 +31,11 @@ export const TopbarTeamSelectButton = ({
   return (
     <TopbarSelectButton
       options={(teams.data ?? []).map((team) => ({
-        id: team.id,
+        id: team.id.toString(),
         value: team.name,
         onClick: () => handleRoute(team.id),
       }))}
-      activeId={activeTeam?.id}
+      activeId={activeTeam?.id.toString()}
       createButton={{
         onClick: () => {
           return router.push(`/new-team`);

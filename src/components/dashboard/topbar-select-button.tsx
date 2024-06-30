@@ -42,7 +42,7 @@ export const TopbarSelectButton = ({
             <Button
               variant="ghost"
               aria-expanded={open}
-              className="rounded-[8px] px-0.5 py-1.5 text-gray-300 hover:bg-gray-100 hover:text-gray-500"
+              className="rounded-[8px] px-0.5 py-1.5 text-muted-foreground hover:bg-muted hover:text-muted-foreground"
               role="combobox"
               onClick={() => setOpen(!open)}
             >

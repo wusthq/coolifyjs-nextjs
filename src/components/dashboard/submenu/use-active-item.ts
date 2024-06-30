@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { type SubmenuItem } from "./types";
 
-export const getActiveItem = ({
+export const useActiveItem = ({
   items,
 }: {
   items: SubmenuItem[];

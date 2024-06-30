@@ -1,7 +1,7 @@
 import type { Project } from "./project";
 
 export type Team = {
-  id: string;
+  id: number;
   name: string;
   created_at: Date;
   updated_at: Date;

@@ -21,7 +21,7 @@ export const DashboardTopbar = ({ user }: DashboardTopbarProps) => {
     <div
       className={cn(
         "max-md:hidden",
-        "z-20 flex h-[60px] items-center justify-between bg-white px-4",
+        "z-20 flex h-[60px] items-center justify-between bg-background px-4",
       )}
     >
       {/* Left */}

@@ -22,7 +22,7 @@ export const DashboardMobileTopbar = ({}: DashboardTopbarProps) => {
 
   return (
     <>
-      <div className={cn("h-[50px] border-b bg-white p-2 md:hidden")}>
+      <div className={cn("h-[50px] border-b bg-background p-2 md:hidden")}>
         <div className="flex items-center gap-2">
           <TopbarTeamSelectButton compact={activeProject ? true : false} />
           <Slash

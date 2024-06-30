@@ -33,6 +33,7 @@
     "dayjs": "^1.11.11",
     "dotenv": "^16.4.5",
     "lucide-react": "^0.395.0",
+    "nanoid": "^5.0.7",
     "negotiator": "^0.6.3",
     "next": "^14.2.3",
     "next-themes": "^0.3.0",
@@ -50,7 +51,6 @@
   "devDependencies": {
     "@tsconfig/next": "^2.0.3",
     "@tsconfig/recommended": "^1.0.6",
-    "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

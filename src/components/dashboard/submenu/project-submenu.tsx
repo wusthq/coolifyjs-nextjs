@@ -5,17 +5,21 @@ import { SubmenuWrapper } from "./submenu-wrapper";
 import { TabList } from "@/components/ui/tab-list";
 import { useWorkspaceStore } from "@/stores/workspace";
 import { useEffect } from "react";
-import { getActiveItem } from "./get-active-item";
 import { type SubmenuItem } from "./types";
+import { useActiveItem } from "./use-active-item";
 
 interface ProjectSubmenuProps {
-  teamId: string;
-  projectId: string;
+  teamId: number;
+  projectId: number;
 }
 
 export const ProjectSubmenu = ({ teamId, projectId }: ProjectSubmenuProps) => {
   const { setActiveProjectId, setActiveTeamId } = useWorkspaceStore();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => setActiveTeamId(teamId), [teamId]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => setActiveProjectId(projectId), [projectId]);
 
   const basePath = `/${teamId}/${projectId}`;
@@ -35,7 +39,7 @@ export const ProjectSubmenu = ({ teamId, projectId }: ProjectSubmenuProps) => {
       disabled: false,
     },
   ];
-  const activeItem = getActiveItem({ items });
+  const activeItem = useActiveItem({ items });
 
   return (
     <SubmenuWrapper>

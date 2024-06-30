@@ -23,17 +23,19 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <div className="h-full min-h-0 w-full">
       <DashboardTopbar user={user} />
       <DashboardMobileTopbar user={user} />
-      <div>{children}</div>
+      <div className="min-h-full">{children}</div>
 
       <footer className="border-t py-5">
-        <div className="container">
-          <h5 className="text-sm font-normal text-foreground/50">
-            Coolify: {coolifyVersion}
-          </h5>
+        <div className="container flex justify-between">
+          <div>
+            <h5 className="text-sm font-normal text-foreground/50">
+              Coolify: {coolifyVersion}
+            </h5>
 
-          <h5 className="text-sm font-normal text-foreground/50">
-            coolifyjs/next: {coolifyJsNextVersion}
-          </h5>
+            <h5 className="text-sm font-normal text-foreground/50">
+              coolifyjs/next: {coolifyJsNextVersion}
+            </h5>
+          </div>
 
           <ModeToggle />
         </div>

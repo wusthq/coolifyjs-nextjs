@@ -17,7 +17,7 @@ export const TopbarProjectSelectButton =
 
     const projects = activeTeam?.projects ?? [];
 
-    const handleRoute = (teamId: string, projectId?: string) => {
+    const handleRoute = (teamId: number, projectId?: number) => {
       if (!projectId) return router.push(`/${teamId}`);
       return router.push(`/${teamId}/${projectId}`);
     };
@@ -28,11 +28,11 @@ export const TopbarProjectSelectButton =
     return (
       <TopbarSelectButton
         options={projects.map((project) => ({
-          id: project.id,
+          id: project.id.toString(),
           value: project.name,
           onClick: () => handleRoute(activeTeam.id, project.id),
         }))}
-        activeId={activeProject?.id}
+        activeId={activeProject?.id.toString()}
         createButton={{
           onClick: () => {
             return router.push(`/${activeTeam.id}/new-project`);

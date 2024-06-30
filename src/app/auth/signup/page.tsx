@@ -1,10 +1,7 @@
-import type { Locale } from "@packages/shared";
 import { SignupForm } from "./signup-form";
 
-interface SignupPageProps {
-  params: { locale: Locale };
-}
+interface SignupPageProps {}
 
-export default function SignupPage({ params }: SignupPageProps) {
-  return <SignupForm locale={params.locale} />;
+export default function SignupPage({}: SignupPageProps) {
+  return <SignupForm />;
 }

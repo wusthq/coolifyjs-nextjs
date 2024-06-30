@@ -125,7 +125,7 @@ export const LoginForm = ({}: LoginFormProps) => {
               />
 
               <Button
-                loading={login.isPending}
+                isLoading={login.isPending}
                 type="submit"
                 className="w-full"
               >
@@ -136,7 +136,7 @@ export const LoginForm = ({}: LoginFormProps) => {
               </Button>
             </div>
             <div className="mt-4 text-center text-sm">
-              Don't have an account?
+              {`Don't have an account?`}
               <Link href="/auth/signup" className="ml-1 underline">
                 Sign up
               </Link>

@@ -6,15 +6,15 @@ type Workspace = {
   teams: TeamWithRelations[];
   setTeams: (teams: TeamWithRelations[]) => void;
 
-  activeTeamId: string | undefined;
-  setActiveTeamId: (teamId: string | undefined) => void;
+  activeTeamId: number | undefined;
+  setActiveTeamId: (teamId: number | undefined) => void;
   getActiveTeam: () => TeamWithRelations | undefined;
-  getTeamById: (teamId: string) => TeamWithRelations | undefined;
+  getTeamById: (teamId: number) => TeamWithRelations | undefined;
 
-  activeProjectId: string | undefined;
-  setActiveProjectId: (projectId: string | undefined) => void;
+  activeProjectId: number | undefined;
+  setActiveProjectId: (projectId: number | undefined) => void;
   getActiveProject: () => Project | undefined;
-  getProjectById: (projectId: string) => Project | undefined;
+  getProjectById: (projectId: number) => Project | undefined;
 };
 
 export const useWorkspaceStore = create<Workspace>((set, get) => {
@@ -26,7 +26,6 @@ export const useWorkspaceStore = create<Workspace>((set, get) => {
     setActiveTeamId: (teamId) => set({ activeTeamId: teamId }),
     getActiveTeam: () => {
       const activeTeamId = get().activeTeamId;
-      console.log(activeTeamId);
       if (!activeTeamId) return undefined;
       return get().teams.find((team) => team.id === activeTeamId);
     },

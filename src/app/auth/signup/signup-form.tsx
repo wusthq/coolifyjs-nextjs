@@ -160,7 +160,7 @@ export const SignupForm = ({}: SignupFormProps) => {
               />
 
               <Button
-                loading={signup.isPending}
+                isLoading={signup.isPending}
                 type="submit"
                 className="w-full"
               >
