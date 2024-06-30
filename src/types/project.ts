@@ -17,6 +17,8 @@ export type ProjectEnvironment = {
   description: string | null;
 };
 
+export type ProjectApplication = {};
+
 export type ProjectWithRelations = Project & {
   environments: ProjectEnvironment[];
 };
