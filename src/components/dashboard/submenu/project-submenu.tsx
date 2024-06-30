@@ -9,8 +9,8 @@ import { type SubmenuItem } from "./types";
 import { useActiveItem } from "./use-active-item";
 
 interface ProjectSubmenuProps {
-  teamId: number;
-  projectId: number;
+  teamId: string;
+  projectId: string;
 }
 
 export const ProjectSubmenu = ({ teamId, projectId }: ProjectSubmenuProps) => {

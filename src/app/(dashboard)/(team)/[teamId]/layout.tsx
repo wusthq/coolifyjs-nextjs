@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 
 interface TeamLayoutProps {
   children: ReactNode;
-  params: { teamId: number };
+  params: { teamId: string };
 }
 
 export default async function TeamLayout({

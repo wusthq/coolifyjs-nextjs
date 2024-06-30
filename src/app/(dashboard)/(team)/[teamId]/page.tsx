@@ -2,20 +2,22 @@
 
 import { PageHeader } from "@/components/dashboard/page-header";
 import { Button } from "@/components/ui/button";
+import { useProject } from "@/features/projects/api/use-project";
 import { useProjects } from "@/features/projects/api/use-projects";
-import { PlusIcon } from "lucide-react";
+import { Folder, PlusIcon } from "lucide-react";
 import { useState } from "react";
 
 interface TeamHomePageProps {
-  params: { teamId: number };
+  params: { teamId: string };
 }
 
 export default function TeamHomePage({ params }: TeamHomePageProps) {
-  const [openProjectId, setOpenProjectId] = useState<number | undefined>();
+  const [openProjectId, setOpenProjectId] = useState<string | undefined>();
   // const [openProjectEnvName, setOpenProjectEnvName] = useState("");
 
   const { teamId } = params;
   const projects = useProjects({ teamId: teamId });
+  const project = useProject({ projectId: openProjectId });
 
   return (
     <div>
@@ -41,7 +43,12 @@ export default function TeamHomePage({ params }: TeamHomePageProps) {
                 className="w-full p-5 text-left"
                 onClick={() => setOpenProjectId(project.id)}
               >
-                {project.name}
+                <div className="inline-flex items-center gap-2">
+                  <span>
+                    <Folder size={20} />
+                  </span>
+                  <span>{project.name}</span>
+                </div>
               </button>
 
               {isOpen && <div></div>}

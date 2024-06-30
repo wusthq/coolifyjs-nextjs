@@ -114,6 +114,7 @@ export const QUERY_KEYS = {
   TEAMS: "teams",
 
   PROJECTS: "projects",
+  PROJECT: "project",
 } as const;
 
 export class ApiError {

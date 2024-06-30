@@ -1,17 +1,17 @@
 export type Project = {
-  id: number;
+  id: string;
   uuid: string;
   name: string;
   description: string | null;
-  team_id: number;
+  team_id: string;
   created_at: Date;
   updated_at: Date;
 };
 
 export type ProjectEnvironment = {
-  id: number;
+  id: string;
   name: string;
-  project_id: number;
+  project_id: string;
   created_at: Date;
   updated_at: Date;
   description: string | null;

@@ -20,7 +20,7 @@ export const TopbarTeamSelectButton = ({
   const workspace = useWorkspaceStore();
   const activeTeam = workspace.getActiveTeam();
 
-  const handleRoute = (teamId?: number) => {
+  const handleRoute = (teamId?: string) => {
     if (!teamId) return router.push("/");
 
     router.push(`/${teamId}`);

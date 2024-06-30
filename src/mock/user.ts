@@ -1,8 +1,8 @@
 import type { TeamWithRelations } from "@/types/team";
 import type { User } from "@/types/user";
-import { MockTeamsWithProjects } from "./teams";
+import { MOCK_TEAMS_WITH_PROJECTS } from "./teams";
 
-export const MockUser: User = {
+export const MOCK_USER: User = {
   id: "1",
   name: "John Doe",
   email_address: "john@example.com",
@@ -10,7 +10,7 @@ export const MockUser: User = {
   updated_at: new Date(),
 };
 
-export const MockUserWithTeams: User & { teams: TeamWithRelations[] } = {
-  ...MockUser,
-  teams: MockTeamsWithProjects,
+export const MOCK_USER_WITH_TEAMS: User & { teams: TeamWithRelations[] } = {
+  ...MOCK_USER,
+  teams: MOCK_TEAMS_WITH_PROJECTS,
 };

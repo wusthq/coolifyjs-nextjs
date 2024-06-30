@@ -4,12 +4,12 @@ import { useMutation } from "@tanstack/react-query";
 import { useEffect } from "react";
 
 interface SlugCookieUpdaterProps {
-  teamId?: number;
+  teamId?: string;
 }
 
 export const SlugCookieUpdater = ({ teamId }: SlugCookieUpdaterProps) => {
   const mutation = useMutation({
-    mutationFn: async ({ teamId }: { teamId?: number }) => {
+    mutationFn: async ({ teamId }: { teamId?: string }) => {
       await fetch("/api/cookies", {
         method: "POST",
         body: JSON.stringify({

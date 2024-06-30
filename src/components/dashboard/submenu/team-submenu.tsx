@@ -9,7 +9,7 @@ import { type SubmenuItem } from "./types";
 import { useActiveItem } from "./use-active-item";
 
 interface TeamSubmenuProps {
-  teamId: number;
+  teamId: string;
 }
 
 export const TeamSubmenu = ({ teamId }: TeamSubmenuProps) => {

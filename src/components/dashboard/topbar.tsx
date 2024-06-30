@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { useWorkspaceStore } from "@/stores/workspace";
 import type { User } from "@/types/user";
@@ -39,7 +39,7 @@ export const DashboardTopbar = ({ user }: DashboardTopbarProps) => {
       {/* Right */}
       <div className="flex items-center gap-3">
         <Avatar>
-          <AvatarImage src={user.email_address} />
+          {/* <AvatarImage src={`https://avatar/${user.email_address}`} /> */}
           <AvatarFallback>
             {user.name.split(" ")[0]}
             {user.name.split(" ")[1]}

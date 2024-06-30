@@ -17,7 +17,7 @@ export const TopbarProjectSelectButton =
 
     const projects = activeTeam?.projects ?? [];
 
-    const handleRoute = (teamId: number, projectId?: number) => {
+    const handleRoute = (teamId: string, projectId?: string) => {
       if (!projectId) return router.push(`/${teamId}`);
       return router.push(`/${teamId}/${projectId}`);
     };
