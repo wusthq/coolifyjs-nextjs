@@ -1,6 +1,9 @@
 {
   "name": "@coolifyjs/nextjs",
   "version": "0.1.2",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
